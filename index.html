@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Air Juggler - Pixel Edition</title>
+    <!-- Minecraft-style pixel font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Air Juggler</h1>
+      <p class="instructions">
+        Move your hands in front of the camera to keep the block in the air!
+      </p>
+      <div class="canvas-wrapper">
+        <video id="webcam" autoplay playsinline></video>
+        <canvas id="gameCanvas" width="640" height="480"></canvas>
+        <div id="overlay" class="overlay">
+          <h2 id="overlayMessage">Ready to Play?</h2>
+          <button id="startButton">Start Game</button>
+        </div>
+      </div>
+      <div id="scoreDisplay">
+        <p>Time: <span id="score">0</span>s</p>
+      </div>
+      <button id="clearLeaderboard" style="margin-top:1rem;">Clear Leaderboard</button>
+    </div>
+    <div id="loadingOverlay" class="loading-overlay hidden">
+      <div class="loading-content">
+        <div class="loader"></div>
+        <h2>Loading TensorFlow.js</h2>
+        <p id="loadingStatus">Initializing models...</p>
+      </div>
+    </div>
+    <!-- TensorFlow.js and MediaPipe libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection"></script>
+    <!-- Game scripts -->
+    <script src="handTracking.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>
